@@ -1,0 +1,9 @@
+{
+	"name": "raj-df-Azureproject",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "36fde54a-0173-441c-b98f-1be167e0b306",
+		"tenantId": "556a7d6e-d73c-4492-a889-1c650dc92cd2"
+	}
+}
