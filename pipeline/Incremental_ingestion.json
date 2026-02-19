@@ -194,7 +194,7 @@
 							"type": "Copy",
 							"dependsOn": [
 								{
-									"activity": "Max_cdc",
+									"activity": "Set variable1",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -210,24 +210,10 @@
 							"userProperties": [],
 							"typeProperties": {
 								"source": {
-									"type": "JsonSource",
-									"additionalColumns": [
-										{
-											"name": "cdc",
-											"value": {
-												"value": "@activity('Max_cdc').output.resultsets[0].rows[0].cdc",
-												"type": "Expression"
-											}
-										}
-									],
-									"storeSettings": {
-										"type": "AzureBlobFSReadSettings",
-										"recursive": true,
-										"enablePartitionDiscovery": false
-									},
-									"formatSettings": {
-										"type": "JsonReadSettings"
-									}
+									"type": "AzureSqlSource",
+									"sqlReaderQuery": "SELECT '@{variables('new_cdc')}' AS cdc",
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
 								},
 								"sink": {
 									"type": "JsonSink",
@@ -242,16 +228,8 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "Json_dynamic",
-									"type": "DatasetReference",
-									"parameters": {
-										"container": "bronze",
-										"folder": {
-											"value": "cdc/@{pipeline().parameters.table}",
-											"type": "Expression"
-										},
-										"file": "empty.json"
-									}
+									"referenceName": "AzureSql",
+									"type": "DatasetReference"
 								}
 							],
 							"outputs": [
@@ -294,6 +272,30 @@
 								],
 								"scriptBlockExecutionTimeout": "02:00:00"
 							}
+						},
+						{
+							"name": "Set variable1",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "Max_cdc",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "new_cdc",
+								"value": {
+									"value": "@{activity('Max_cdc').output.resultSets[0].rows[0].cdc}",
+									"type": "Expression"
+								}
+							}
 						}
 					]
 				}
@@ -312,6 +314,9 @@
 		},
 		"variables": {
 			"current": {
+				"type": "String"
+			},
+			"new_cdc": {
 				"type": "String"
 			}
 		},
