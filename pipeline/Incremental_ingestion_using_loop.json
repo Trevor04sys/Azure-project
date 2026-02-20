@@ -226,7 +226,10 @@
 										"typeProperties": {
 											"source": {
 												"type": "AzureSqlSource",
-												"sqlReaderQuery": "SELECT '@{variables('new_cdc')}' AS cdc",
+												"sqlReaderQuery": {
+													"value": "SELECT '@{variables('new_cdc')}' AS cdc",
+													"type": "Expression"
+												},
 												"queryTimeout": "02:00:00",
 												"partitionOption": "None"
 											},
@@ -253,7 +256,10 @@
 												"type": "DatasetReference",
 												"parameters": {
 													"container": "bronze",
-													"folder": "cdc/@{pipeline().parameters.table}",
+													"folder": {
+														"value": "cdc/@{item().table}",
+														"type": "Expression"
+													},
 													"file": "cdc.json"
 												}
 											}
@@ -325,31 +331,31 @@
 				"defaultValue": [
 					{
 						"schema": "dbo",
-						"table": "DimUser",
+						"table": "dimuser",
 						"cdc_col": "updated_at",
 						"from_date": ""
 					},
 					{
 						"schema": "dbo",
-						"table": "DimTrack",
+						"table": "dimtrack",
 						"cdc_col": "updated_at",
 						"from_date": ""
 					},
 					{
 						"schema": "dbo",
-						"table": "DimDate",
+						"table": "dimdate",
 						"cdc_col": "date",
 						"from_date": ""
 					},
 					{
 						"schema": "dbo",
-						"table": "DimArtist",
+						"table": "dimartist",
 						"cdc_col": "updated_at",
 						"from_date": ""
 					},
 					{
 						"schema": "dbo",
-						"table": "FactStream",
+						"table": "factstream",
 						"cdc_col": "stream_timestamp",
 						"from_date": ""
 					}
