@@ -1,0 +1,17 @@
+{
+	"name": "Azuresql",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "rajazureprojectserver.database.windows.net",
+			"database": "azureprojectdbraj",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "Adminraj",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDRBQkFGNjBFLTY5QzctNDlFMC05NEM5LUEzN0MyMDdGOEQ4Q19lZjUxNmE5Ni1lNzc4LTRhNjUtYmE4Mi01ODZhODkwOTZlNTAiDQp9"
+		}
+	}
+}
