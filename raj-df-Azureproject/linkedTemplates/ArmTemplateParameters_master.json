@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "raj-df-Azureproject"
+		},
+		"Azuresql_password": {
+			"value": ""
+		},
+		"DataLake_accountKey": {
+			"value": ""
+		},
+		"Azuresql_properties_typeProperties_server": {
+			"value": "rajazureprojectserver.database.windows.net"
+		},
+		"Azuresql_properties_typeProperties_database": {
+			"value": "azureprojectdbraj"
+		},
+		"Azuresql_properties_typeProperties_userName": {
+			"value": "Adminraj"
+		},
+		"DataLake_properties_typeProperties_url": {
+			"value": "https://rajstorageazureproject.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
