@@ -1,0 +1,4 @@
+# .gitignore
+linkedServices/Azuresql.json
+linkedServices/DataLake.json
+factory/raj-df-Azureproject.json
