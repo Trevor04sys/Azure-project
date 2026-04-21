@@ -129,3 +129,8 @@ Power BI Dashboards
 - Snappy-compressed Parquet reduces storage costs vs raw CSV by ~70%
 - Watermark logic ensures no duplicate data across pipeline runs
 - Reusable pipeline design — add new tables by updating config array only
+
+- > ⚠️ Note: Azure free trial has expired. 
+> All pipeline logic is fully documented in the 
+> `/pipeline` and `/dataset` folders as ADF JSON 
+> exports, which can be imported into any ADF instance.
