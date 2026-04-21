@@ -37,7 +37,7 @@ Azure Synapse Analytics
 ▼
 Power BI Dashboards
 
-![Architecture Diagram](./architecture.png)
+![Architecture Diagram](./pipeline/architecture.png)
 ---
 
 ## 📊 Data Model (Star Schema)
